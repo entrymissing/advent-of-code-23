@@ -1,3 +1,4 @@
+import os
 from util import read_input
 
 def solve_1(filename='input/test-01-1.txt'):
@@ -41,10 +42,11 @@ def solve_2(filename='input/test-01-2.txt'):
   return res
 
 def test_results():
-  assert solve_1() == 142
-  assert solve_1('input/input-01.txt') == 54388
-  assert solve_2() == 281
-  assert solve_2('input/input-01.txt') == 53515
+  if os.path.exists('input'):
+    assert solve_1() == 142
+    assert solve_1('input/input-01.txt') == 54388
+    assert solve_2() == 281
+    assert solve_2('input/input-01.txt') == 53515
 
 if __name__ == '__main__':
   print(solve_1('input/input-01.txt'))

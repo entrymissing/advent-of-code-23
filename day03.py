@@ -1,4 +1,5 @@
 from collections import defaultdict
+import os
 
 from util import read_input
 
@@ -83,10 +84,11 @@ def solve_2(filename='input/test-03.txt'):
   return resp
 
 def test_results():
-  assert solve_1() == 4361
-  assert solve_1('input/input-03.txt') == 544664
-  assert solve_2() == 467835
-  assert solve_2('input/input-03.txt') == 84495585
+  if os.path.exists('input'):
+    assert solve_1() == 4361
+    assert solve_1('input/input-03.txt') == 544664
+    assert solve_2() == 467835
+    assert solve_2('input/input-03.txt') == 84495585
 
 if __name__ == '__main__':
   print(solve_1('input/input-03.txt'))

@@ -1,3 +1,5 @@
+import os
+
 from util import read_input
 
 def parse_mapping_input(lines):
@@ -165,10 +167,11 @@ def solve_2(filename='input/test-05.txt'):
   return min([r[0] for r in seed_ranges])
 
 def test_results():
-  assert solve_1() == 35
-  assert solve_1('input/input-05.txt') == 51580674
-  assert solve_2() == 46
-  assert solve_2('input/input-05.txt') == 99751240
+  if os.path.exists('input'):
+    assert solve_1() == 35
+    assert solve_1('input/input-05.txt') == 51580674
+    assert solve_2() == 46
+    assert solve_2('input/input-05.txt') == 99751240
 
 
 if __name__ == '__main__':

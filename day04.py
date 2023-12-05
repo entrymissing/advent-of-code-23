@@ -1,3 +1,5 @@
+import os
+
 from util import read_input
 
 def read_card(line):
@@ -38,10 +40,11 @@ def solve_2(filename='input/test-04.txt'):
 
 
 def test_results():
-  assert solve_1() == 13
-  assert solve_1('input/input-04.txt') == 20407
-  assert solve_2() == 30
-  assert solve_2('input/input-04.txt') == 23806951
+  if os.path.exists('input'):
+    assert solve_1() == 13
+    assert solve_1('input/input-04.txt') == 20407
+    assert solve_2() == 30
+    assert solve_2('input/input-04.txt') == 23806951
 
 if __name__ == '__main__':
   print(solve_1('input/input-04.txt'))
