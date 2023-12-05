@@ -54,7 +54,6 @@ def test_results():
   assert solve_2() == 2286
   assert solve_2('input/input-02.txt') == 83435
 
-
 if __name__ == '__main__':
   print(solve_1('input/input-02.txt'))
   print(solve_2('input/input-02.txt'))
