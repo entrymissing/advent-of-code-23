@@ -195,6 +195,6 @@ def test_results():
 
 if __name__ == '__main__':
   print(solve_1())
-  print(solve_1('input/input-07.txt')) 
+  print(solve_1('input/input-07.txt'))
   print(solve_2())
-  print(solve_2('input/input-07.txt')) 
+  print(solve_2('input/input-07.txt'))
