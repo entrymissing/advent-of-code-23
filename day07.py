@@ -108,7 +108,7 @@ def parse_hand_with_wildcards(hand):
       return 3
     return 5
 
-  raise Exception(f'You should not be here: {hand1}, {hand2}')
+  raise Exception(f'You should not be here: {hand}, {jack_count}, {counts}')
 
 def test_parse_hand_with_wildcards():
   assert parse_hand_with_wildcards(['K', 'K', 'K', 'K', 'K']) == 0
