@@ -3,6 +3,7 @@ import os
 
 from util import read_input
 
+
 def get_numbers_in_line(line):
   res = []
   num_started = False
@@ -26,16 +27,18 @@ def get_numbers_in_line(line):
     res.append((int(''.join(digits)), start_idx))
   return res
 
-def has_symbols(row, col, length, lines):
-  row_start = max(0,row-1)
-  row_end =  min(len(lines[0]), row+length+1)
 
-  for c in range(max(0,col-1), min(len(lines[0]), col+2)):
+def has_symbols(row, col, length, lines):
+  row_start = max(0, row-1)
+  row_end = min(len(lines[0]), row+length+1)
+
+  for c in range(max(0, col-1), min(len(lines[0]), col+2)):
     inp = lines[c][row_start:row_end]
     inp = inp.strip('0123456789.')
     if inp:
       return True
   return False
+
 
 def solve_1(filename='input/test-03.txt'):
   lines = read_input(filename)
@@ -47,22 +50,23 @@ def solve_1(filename='input/test-03.txt'):
     for number, row_idx in numbers:
       if has_symbols(row_idx, col_idx, len(str(number)), lines):
         resp += number
-  
+
   return resp
 
 
 def get_gears(row, col, length, lines):
-  row_start = max(0,row-1)
-  row_end =  min(len(lines[0]), row+length+1)
+  row_start = max(0, row-1)
+  row_end = min(len(lines[0]), row+length+1)
 
   gears = []
 
-  for c in range(max(0,col-1), min(len(lines[0]), col+2)):
+  for c in range(max(0, col-1), min(len(lines[0]), col+2)):
     inp = lines[c][row_start:row_end]
     for idx, symb in enumerate(inp):
       if symb == '*':
-        gears.append((c,idx+row_start))
+        gears.append((c, idx+row_start))
   return gears
+
 
 def solve_2(filename='input/test-03.txt'):
   lines = read_input(filename)
@@ -76,12 +80,13 @@ def solve_2(filename='input/test-03.txt'):
       gears = get_gears(row_idx, col_idx, len(str(number)), lines)
       for gear in gears:
         gear_connections[gear].append(number)
-  
+
   resp = 0
   for gear in gear_connections:
     if len(gear_connections[gear]) == 2:
       resp += gear_connections[gear][0] * gear_connections[gear][1]
   return resp
+
 
 def test_results():
   if os.path.exists('input'):
@@ -89,6 +94,7 @@ def test_results():
     assert solve_1('input/input-03.txt') == 544664
     assert solve_2() == 467835
     assert solve_2('input/input-03.txt') == 84495585
+
 
 if __name__ == '__main__':
   print(solve_1('input/input-03.txt'))

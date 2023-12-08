@@ -2,6 +2,7 @@ import os
 
 from util import read_input
 
+
 def read_card(line):
   card_number = int(line.split(':')[0][5:])
 
@@ -10,6 +11,7 @@ def read_card(line):
   picked_numbers = [int(n.strip()) for n in numbers.split('|')[1].strip().split(' ') if n]
 
   return card_number, winning_numbers, picked_numbers
+
 
 def solve_1(filename='input/test-04.txt'):
   lines = read_input(filename)
@@ -24,6 +26,7 @@ def solve_1(filename='input/test-04.txt'):
       resp += payout
   return resp
 
+
 def solve_2(filename='input/test-04.txt'):
   lines = read_input(filename)
 
@@ -35,8 +38,8 @@ def solve_2(filename='input/test-04.txt'):
     cur_tickets = num_tickets[idx]
     for offset in range(num_winners):
       num_tickets[idx+1+offset] += cur_tickets
-    
-  return(sum(num_tickets))
+
+  return sum(num_tickets)
 
 
 def test_results():
@@ -45,6 +48,7 @@ def test_results():
     assert solve_1('input/input-04.txt') == 20407
     assert solve_2() == 30
     assert solve_2('input/input-04.txt') == 23806951
+
 
 if __name__ == '__main__':
   print(solve_1('input/input-04.txt'))
