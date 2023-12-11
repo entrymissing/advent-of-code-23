@@ -33,10 +33,15 @@ def find_start(map):
 
 
 def test_find_start():
-  map = read_input('input/test-10-1.txt')
-  assert find_start(map) == (1, 1)
-  map = read_input('input/test-10-2.txt')
-  assert find_start(map) == (0, 2)
+  assert find_start(['ASD', 'DDD']) == (1, 0)
+  assert find_start(['SDA', 'DDD']) == (0, 0)
+  assert find_start(['DDD', 'DDD', 'DFS']) == (2, 2)
+
+  if os.path.exists('input'):
+    map = read_input('input/test-10-1.txt')
+    assert find_start(map) == (1, 1)
+    map = read_input('input/test-10-2.txt')
+    assert find_start(map) == (0, 2)
 
 
 def find_connected_neighbors(x, y, map):
