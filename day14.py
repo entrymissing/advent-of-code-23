@@ -19,13 +19,10 @@ def rotate_map(map, n=1):
 
 def fall_left(map):
   new_map = []
-  # map = [list(map[-1])]
-  # print(map)
   for line in map:
     line = list(line)
     fall_to = 0
     for idx, val in enumerate(line):
-      #  print(line, idx, fall_to, val)
       if val == 'O':
         if fall_to == idx:
           fall_to += 1
