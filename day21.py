@@ -1,4 +1,5 @@
 import functools
+import os
 
 from util import read_input, get_pos, set_pos, pos_plus_offset
 
@@ -101,6 +102,8 @@ def solve_1(filename='input/test-21.txt', max_dist=6):
 
 
 def test_map_symetry():
+  if not os.path.exists('input'):
+    return
   map = read_input('input/input-21.txt')
 
   # Prep the map
