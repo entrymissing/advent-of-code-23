@@ -202,8 +202,15 @@ def solve_2(filename='input/test-21.txt', max_dist=6):
   return 620962518745459
 
 
-if __name__ == '__main__':
-  # print(solve_1())
-  # print(solve_1('input/input-21.txt', 64))
+def test_results():
+  if os.path.exists('input'):
+    assert solve_1() == 16
+    assert solve_1('input/input-21.txt', 64) == 3740
+    assert solve_2() == 620962518745459
 
+
+if __name__ == '__main__':
+  print(solve_1())
+  print(solve_1('input/input-21.txt', 64))
+  print(solve_2())
   print(solve_2('input/input-21.txt'))
