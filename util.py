@@ -35,4 +35,3 @@ def set_pos(*args):
 
 def pos_plus_offset(pos, offset, multiplier=1):
   return (pos[0] + offset[0] * multiplier, pos[1] + offset[1] * multiplier)
-  
