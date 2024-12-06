@@ -77,20 +77,9 @@ def test_get_next_steps():
   assert slopes == [('R', '>'), ('D', 'v')]
 
 
-def find_next_junction(pos, prev_dir, map):
-  distance = 0
-  next_step = (pos, prev_dir)
-  
-
-  path, slopes = get_next_steps(pos, prev_dir, map)
-
-  if is_junction(pos, map):
-    return pos, distance
-
 def solve_1(filename='input/test-23.txt'):
   map = read_input(filename)
-  dag = parse_map(map)
-  print(dag)
+  print(map)
 
 
 if __name__ == '__main__':
