@@ -1,4 +1,5 @@
 from util import read_input, get_pos, pos_plus_offset
+import os
 
 
 offset = {
@@ -66,15 +67,16 @@ def get_next_steps(pos, prev_dir, map):
 
 
 def test_get_next_steps():
-  map = read_input('input/test-23.txt')
+  if os.path.exists('input'):
+    map = read_input('input/test-23.txt')
 
-  path, slopes = get_next_steps((1, 1), 'D', map)
-  assert path == 'R'
-  assert slopes == []
+    path, slopes = get_next_steps((1, 1), 'D', map)
+    assert path == 'R'
+    assert slopes == []
 
-  paths, slopes = get_next_steps((11, 3), 'R', map)
-  assert paths is None
-  assert slopes == [('R', '>'), ('D', 'v')]
+    paths, slopes = get_next_steps((11, 3), 'R', map)
+    assert paths is None
+    assert slopes == [('R', '>'), ('D', 'v')]
 
 
 def solve_1(filename='input/test-23.txt'):
