@@ -18,6 +18,8 @@ opposing_dir = {
 
 
 def test_map():
+  if not os.path.exists('input'):
+    return
   for input_file in ('input/test-23.txt', 'input/input-23.txt'):
     map = read_input(input_file)
     start_and_ends = 0
